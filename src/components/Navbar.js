@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 
 export default function Navbar(props) {
-    console.log("Props received", props);
+    // console.log("Props received", props);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
