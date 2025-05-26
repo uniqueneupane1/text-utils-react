@@ -5,7 +5,7 @@ export default function TextForm(props) {
 
 
   const handleUpClick = () => {
-    // console.log("UpperCase was clicked" + text);
+    console.log("UpperCase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
   };
@@ -29,6 +29,7 @@ export default function TextForm(props) {
           <textarea
             className="form-control"
             id="myBox"
+            value={text}
             placeholder="Enter text here"
             onChange={handleOnChange}
             rows="8"
@@ -46,7 +47,7 @@ export default function TextForm(props) {
         <p><b>{isTextEmpty ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters</b></p>
         <p><b>{0.008 * (isTextEmpty ? 0 : text.trim().split(/\s+/).length)} minutes to read</b></p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{isTextEmpty ? "Nothing to preview." : text}</p>
       </div>
     </>
   );
