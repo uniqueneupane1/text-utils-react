@@ -36,6 +36,16 @@
     transform: rotate(360deg);
   }
 }
-.blank {
-  color: red;
+
+.form-check input:checked {
+  background-color: green;
+  border-color: green;
+}
+
+.textarea-dark::placeholder {
+  color: #888585;
+}
+
+.textarea-light::placeholder {
+  color: grey
 }

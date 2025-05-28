@@ -5,6 +5,12 @@ import { faClipboard, faCheck } from "@fortawesome/free-solid-svg-icons";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   const [copied, setCopied] = useState(false);
+  const textColor = props.mode === "dark" ? "white" : "black";
+  const bgColor = props.mode === "dark" ? "#343a40" : "white";
+  const textAreaStyle = {
+    backgroundColor: bgColor,
+    color: textColor,
+  };
 
   const handleUpClick = () => {
     // console.log("UpperCase was clicked" + text);
@@ -40,41 +46,55 @@ export default function TextForm(props) {
   const isTextEmpty = text.trim() === "";
   return (
     <>
-      <div className="container">
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
-            className="form-control"
+            className={`form-control ${props.mode==='dark'?'textarea-dark':'textarea-light'}`}
             id="myBox"
             value={text}
             placeholder="Enter text here"
             onChange={handleOnChange}
+            style={textAreaStyle}
             rows="8"
           ></textarea>
         </div>
         <button
-          className="btn btn-outline-success"
+          className={`btn btn-outline-success text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
           onClick={handleUpClick}
           disabled={isTextEmpty}
         >
           Convert to upper case
         </button>
         <button
-          className="btn btn-outline-success mx-2"
+          className={`btn btn-outline-success mx-2 text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
           onClick={handleLoClick}
           disabled={isTextEmpty}
         >
           Convert to lower case
         </button>
         <button
-          className="btn btn-outline-success"
+          className={`btn btn-outline-success text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
           onClick={handleClearText}
           disabled={isTextEmpty}
         >
           Clear text
         </button>
       </div>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <h2>Your text summary</h2>
         <p>
           <b>
@@ -88,16 +108,15 @@ export default function TextForm(props) {
             minutes to read
           </b>
         </p>
-        <div className="container bg-light">
+        <div className="container border" style={textAreaStyle}>
           <h2 className="d-flex justify-content-between">
-            <span>Preview</span>
+            Preview
             <button
               className="text-secondary"
               onClick={handleCopyClick}
               style={{
                 background: "none",
                 border: "none",
-                cursor: "pointer",
                 color: "#0d6efd",
                 display: "flex",
                 alignItems: "center",
@@ -109,11 +128,13 @@ export default function TextForm(props) {
             >
               <FontAwesomeIcon
                 icon={copied ? faCheck : faClipboard}
-                size="sm"
+                size="xs"
                 className="mx-1"
+                style={textAreaStyle}
               />
               <span
                 style={{
+                  ...textAreaStyle,
                   fontSize: "15px",
                 }}
               >
@@ -121,7 +142,9 @@ export default function TextForm(props) {
               </span>
             </button>
           </h2>
-          <p>{isTextEmpty ? "Nothing to preview." : text}</p>
+          <p style= {{color: props.mode==='dark'?'#888585':'grey'}}>
+            {isTextEmpty ? "Nothing to preview." : text}
+          </p>
         </div>
       </div>
     </>
