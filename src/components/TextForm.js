@@ -5,24 +5,33 @@ import { faClipboard, faCheck } from "@fortawesome/free-solid-svg-icons";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   const [copied, setCopied] = useState(false);
-  const textColor = props.mode === "dark" ? "white" : "black";
-  const bgColor = props.mode === "dark" ? "#343a40" : "white";
-  const textAreaStyle = {
-    backgroundColor: bgColor,
-    color: textColor,
-  };
+
+
+  // const textColor = props.mode === "dark" ? "white" : "black";
+  // const bgColor = props.mode === "dark" ? "#2c3238" : "white";
+  // const textAreaStyle = {
+  //   backgroundColor: bgColor,
+  //   color: textColor,
+  // };
 
   const handleUpClick = () => {
     // console.log("UpperCase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!", "success");
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase!", "success");
   };
 
+  const handleTitleCaseClick = () => {
+    let newText = text.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+    setText(newText);
+    props.showAlert("Converted to titlecase!", "success");
+  }
   const handleOnChange = (event) => {
     // console.log("Value Changed");
     setText(event.target.value);
@@ -31,12 +40,26 @@ export default function TextForm(props) {
   const handleClearText = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Text has been cleared!", "success");
   };
+
+  const handleRemoveExtSpace = () => {
+    let newText = text.trim().split(/\s+/).join(" ");
+    setText(newText);
+    props.showAlert("Extra Space has been removed!", "success");
+  }
+
+  const handleRemovePunct = () => {
+    let newText = text.replace(/[^\w\s]/g,"");
+    setText(newText);
+    props.showAlert("Punctuation has been removed!", "success");
+  }
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(text);
     // alert("Text copied to clipoard");
     setCopied(true);
+    props.showAlert("Copied to clipboard!", "success");
 
     setTimeout(() => {
       setCopied(false);
@@ -57,7 +80,7 @@ export default function TextForm(props) {
             value={text}
             placeholder="Enter text here"
             onChange={handleOnChange}
-            style={textAreaStyle}
+            style={props.style}
             rows="8"
           ></textarea>
         </div>
@@ -83,10 +106,37 @@ export default function TextForm(props) {
           className={`btn btn-outline-success text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
+          onClick={handleTitleCaseClick}
+          disabled={isTextEmpty}
+        >
+          Convert to title case
+        </button>
+        <button
+          className={`btn btn-outline-success mx-2 text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
           onClick={handleClearText}
           disabled={isTextEmpty}
         >
           Clear text
+        </button>
+        <button
+          className={`btn btn-outline-success text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
+          onClick={handleRemoveExtSpace}
+          disabled={isTextEmpty}
+        >
+          Remove Extra Spaces
+        </button>
+        <button
+          className={`btn btn-outline-success mx-2 text-${
+            props.mode === "dark" ? "white" : "#198754"
+          }`}
+          onClick={handleRemovePunct}
+          disabled={isTextEmpty}
+        >
+          Remove Punctuation
         </button>
       </div>
       <div
@@ -108,7 +158,7 @@ export default function TextForm(props) {
             minutes to read
           </b>
         </p>
-        <div className="container border" style={textAreaStyle}>
+        <div className="container border" style={props.style}>
           <h2 className="d-flex justify-content-between">
             Preview
             <button
@@ -130,11 +180,11 @@ export default function TextForm(props) {
                 icon={copied ? faCheck : faClipboard}
                 size="xs"
                 className="mx-1"
-                style={textAreaStyle}
+                style={props.style}
               />
               <span
                 style={{
-                  ...textAreaStyle,
+                  ...props.style,
                   fontSize: "15px",
                 }}
               >

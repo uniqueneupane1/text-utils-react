@@ -24,21 +24,22 @@ export default function About(props) {
   //   }
   // }
 
-  const textColor = props.mode === "dark" ? "white" : "black";
-  const bgColor = props.mode === "dark" ? "#343a40" : "white";
-  const textStyle = {
-    color: textColor,
-    backgroundColor: bgColor,
-  }
+  // const textColor = props.mode === "dark" ? "white" : "black";
+  // const bgColor = props.mode === "dark" ? "#2c3238" : "white";
+  // const textStyle = {
+  //   color: textColor,
+  //   backgroundColor: bgColor,
+  // }
   return (
     <div
-      className="container" style= {textStyle}
+      className="container" 
+      style={props.style}
     >
       <h1 className="my-3">About Us</h1>
       <div className="accordion" id="accordionExample">
         <div
           className="accordion-item"
-          style={textStyle}
+          style={props.style}
         >
           <h2 className="accordion-header">
             <button
@@ -49,7 +50,7 @@ export default function About(props) {
               aria-expanded="true"
               aria-controls="collapseOne"
               // style={myStyle}
-              style={textStyle}
+              style={props.style}
             >
               Accordion Item #1
             </button>
@@ -73,7 +74,7 @@ export default function About(props) {
         </div>
         <div
           className="accordion-item"
-          style={textStyle}
+          style={props.style}
         >
           <h2 className="accordion-header">
             <button
@@ -83,7 +84,8 @@ export default function About(props) {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={textStyle}
+              style={props.style}
+              // style={textStyle}
               // style={myStyle}
             >
               Accordion Item #2
@@ -108,7 +110,7 @@ export default function About(props) {
         </div>
         <div
           className="accordion-item"
-          style={textStyle}
+          style={props.style}
         >
           <h2 className="accordion-header">
             <button
@@ -119,7 +121,7 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseThree"
               // style={myStyle}
-              style={textStyle}
+              style={props.style}
             >
               Accordion Item #3
             </button>
