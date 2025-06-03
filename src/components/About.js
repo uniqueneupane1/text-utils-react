@@ -1,6 +1,9 @@
-// import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 export default function About(props) {
+  useEffect(() => {
+    document.title = 'TextUtils - About';
+  }, []);
   // const [myStyle, setMyStyle] = useState({
   //   color: 'black',
   //   backgroundColor: 'white',
