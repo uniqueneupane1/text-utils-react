@@ -51,7 +51,7 @@ function App() {
       <div className="container my-3">
         <Routes>
           <Route
-            path="/"
+            exact path="/"
             element={
               <TextForm
                 heading="Enter the text to analyze"
@@ -61,7 +61,7 @@ function App() {
               />
             }
           />
-          <Route path="/about" element={<About mode={mode} style={textAreaStyle} />} />
+          <Route exact path="/about" element={<About mode={mode} style={textAreaStyle} />} />
         </Routes>
       </div>
     </Router>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function About(props) {
   useEffect(() => {
-    document.title = 'TextUtils - About';
+    document.title = 'About | TextUtils';
   }, []);
   // const [myStyle, setMyStyle] = useState({
   //   color: 'black',

@@ -4,7 +4,7 @@ import { faClipboard, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function TextForm(props) {
   useEffect(() => {
-    document.title = 'TextUtils - Home';
+    document.title = 'Home | TextUtils';
   }, []);
   const [text, setText] = useState("");
   const [copied, setCopied] = useState(false);
