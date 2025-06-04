@@ -54,7 +54,7 @@ function App() {
             exact path="/"
             element={
               <TextForm
-                heading="Enter the text to analyze"
+                heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
                 mode={mode}
                 showAlert={showAlert}
                 style={textAreaStyle}

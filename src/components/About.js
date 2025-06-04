@@ -61,7 +61,7 @@ export default function About(props) {
           </h2>
           <div
             id="collapseOne"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
@@ -316,7 +316,7 @@ export default function About(props) {
       </div> */}
       <h2 className="my-4">Why Choose TextUtils?</h2>
       <p>
-        TextUtils is fast, lightweight, and completely free. With its clean user
+        <strong>TextUtils</strong> is fast, lightweight, and completely free. With its clean user
         interface and real-time processing, you get immediate feedback on your
         text transformations. It's designed to be responsive across all
         devices—desktops, tablets, and phones—so you can work anywhere, anytime.
