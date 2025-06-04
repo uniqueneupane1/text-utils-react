@@ -88,7 +88,7 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <button
-          className={`btn btn-outline-success text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleUpClick}
@@ -97,7 +97,7 @@ export default function TextForm(props) {
           Convert to upper case
         </button>
         <button
-          className={`btn btn-outline-success mx-2 text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleLoClick}
@@ -106,7 +106,7 @@ export default function TextForm(props) {
           Convert to lower case
         </button>
         <button
-          className={`btn btn-outline-success text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleTitleCaseClick}
@@ -115,7 +115,7 @@ export default function TextForm(props) {
           Convert to title case
         </button>
         <button
-          className={`btn btn-outline-success mx-2 text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleClearText}
@@ -124,7 +124,7 @@ export default function TextForm(props) {
           Clear text
         </button>
         <button
-          className={`btn btn-outline-success text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleRemoveExtSpace}
@@ -133,7 +133,7 @@ export default function TextForm(props) {
           Remove Extra Spaces
         </button>
         <button
-          className={`btn btn-outline-success mx-2 text-${
+          className={`btn btn-outline-success mx-1 my-1 text-${
             props.mode === "dark" ? "white" : "#198754"
           }`}
           onClick={handleRemovePunct}
