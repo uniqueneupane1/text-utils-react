@@ -3,6 +3,7 @@ import "./App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
@@ -64,6 +65,7 @@ function App() {
           <Route exact path="/about" element={<About mode={mode} style={textAreaStyle} />} />
         </Routes>
       </div>
+      <Footer style={textAreaStyle}/>
     </Router>
   );
 }

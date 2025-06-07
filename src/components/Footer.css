@@ -1,0 +1,16 @@
+.footer-divider {
+    border: none;
+    border-top: 2px solid #7a7979;;
+    margin: 40px auto 0;
+    width: 85%;
+}
+
+.footer-container {
+  background-color:#f8f9fa;;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.footer-bottom {
+    justify-content: center;
+}
